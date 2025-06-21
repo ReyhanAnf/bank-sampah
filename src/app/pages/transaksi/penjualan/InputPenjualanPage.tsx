@@ -170,8 +170,8 @@ const InputPenjualanPage = () => {
                     <input type='text' className='form-control' name='pembeli' value={form.pembeli} onChange={handleChange} required />
                   </div>
                   <div className='mb-3'>
-                    <label className='form-label'>Jenis</label>
-                    <input type='text' className='form-control' name='jenis' value={form.jenis} onChange={handleChange} required />
+                    <label className='form-label'>Nama Barang</label>
+                    <input type='text' className='form-control' name='namaBarang' value={form.namaBarang} onChange={handleChange} required />
                   </div>
                   <div className='mb-3'>
                     <label className='form-label'>Jumlah</label>

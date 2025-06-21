@@ -35,7 +35,7 @@ const RiwayatPembelianPage = () => {
 
   const filteredData = data.filter(row =>
     row.pemasok.toLowerCase().includes(filter.pemasok.toLowerCase()) &&
-    row.status.toLowerCase().includes(filter.status.toLowerCase())
+    (row.status?.toLowerCase().includes(filter.status.toLowerCase()) || filter.status === '')
   );
 
   const handleExport = () => {

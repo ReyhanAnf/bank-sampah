@@ -6,14 +6,14 @@ import { KTIcon } from '../../../_metronic/helpers';
 import { MenuComponent } from '../../../_metronic/assets/ts/components';
 
 const initialData: Keuangan[] = [
-  { tanggal: '2024-06-01', keterangan: 'Setoran Nasabah', jenis: 'Pemasukan', jumlah: 'Rp 500.000' },
-  { tanggal: '2024-06-02', keterangan: 'Pembelian Karung', jenis: 'Pengeluaran', jumlah: 'Rp 100.000' },
+  { id: 1, tanggal: '2024-06-01', keterangan: 'Setoran Nasabah', jenis: 'Pemasukan', jumlah: 'Rp 500.000', status: 'Lunas' },
+  { id: 2, tanggal: '2024-06-02', keterangan: 'Pembelian Karung', jenis: 'Pengeluaran', jumlah: 'Rp 100.000', status: 'Lunas' },
 ];
 
 const KeuanganPage = () => {
   const [data, setData] = useState<Keuangan[]>(initialData);
   const [showModal, setShowModal] = useState(false);
-  const [form, setForm] = useState<Keuangan>({ id: 0, tanggal: '', jenisTransaksi: '', jumlah: 0, status: '' });
+  const [form, setForm] = useState<Keuangan>({ id: 0, tanggal: '', keterangan: '', jenis: 'Pemasukan', jumlah: '', status: '' });
   const [filter, setFilter] = useState({ jenisTransaksi: '', status: '' });
   const [filterState, setFilterState] = useState({ jenisTransaksi: '', status: '' });
 
@@ -40,8 +40,9 @@ const KeuanganPage = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setData([...data, form]);
-    setForm({ tanggal: '', keterangan: '', jenis: 'Pemasukan', jumlah: '' });
+    const newKeuangan = { ...form, id: Date.now() };
+    setData([...data, newKeuangan]);
+    setForm({ id: 0, tanggal: '', keterangan: '', jenis: 'Pemasukan', jumlah: '', status: '' });
     setShowModal(false);
   };
 

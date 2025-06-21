@@ -3,12 +3,12 @@ import { Column } from 'react-table';
 export interface Setoran {
     id: number;
     tanggal: string;
-    nama: string;
-    jenisSampah: string;
-    berat: number;
-    harga: number;
-    total: number;
+    nasabah: string;
+    jenis: string;
+    berat: string;
+    nilai: string;
     status?: string;
+    selected?: boolean;
 }
 
 export const inputSetoranColumns: Column<Setoran>[] = [

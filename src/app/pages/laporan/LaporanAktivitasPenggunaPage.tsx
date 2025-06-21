@@ -1,20 +1,28 @@
 import React, { useState } from 'react';
 import { KTCard } from '../../../_metronic/helpers/components/KTCard';
 import { MetronicTable } from '../../components/MetronicTable';
+import { Column } from 'react-table';
 
-const initialData = [
-  { tanggal: '2024-06-01', pengguna: 'Operator', aktivitas: 'Input Setoran' },
-  { tanggal: '2024-06-02', pengguna: 'Bendahara', aktivitas: 'Verifikasi Penarikan' },
+interface AktivitasPengguna {
+  id: number;
+  tanggal: string;
+  pengguna: string;
+  aktivitas: string;
+}
+
+const initialData: AktivitasPengguna[] = [
+  { id: 1, tanggal: '2024-06-01', pengguna: 'Operator', aktivitas: 'Input Setoran' },
+  { id: 2, tanggal: '2024-06-02', pengguna: 'Bendahara', aktivitas: 'Verifikasi Penarikan' },
 ];
 
-const columns = [
+const columns: Column<AktivitasPengguna>[] = [
   { Header: 'Tanggal', accessor: 'tanggal' },
   { Header: 'Pengguna', accessor: 'pengguna' },
   { Header: 'Aktivitas', accessor: 'aktivitas' },
 ];
 
 const LaporanAktivitasPenggunaPage = () => {
-  const [data] = useState(initialData);
+  const [data] = useState<AktivitasPengguna[]>(initialData);
   const [filter, setFilter] = useState({ pengguna: '', aktivitas: '' });
 
   const filteredData = data.filter(row =>

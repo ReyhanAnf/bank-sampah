@@ -6,14 +6,14 @@ import { KTIcon } from '../../../_metronic/helpers';
 import { MenuComponent } from '../../../_metronic/assets/ts/components';
 
 const initialData: Pengguna[] = [
-  { nama: 'Budi Santoso', username: 'budi', role: 'Operator' },
-  { nama: 'Siti Aminah', username: 'siti', role: 'Bendahara' },
+  { id: 1, nama: 'Budi Santoso', username: 'budi', role: 'Operator', status: 'Aktif' },
+  { id: 2, nama: 'Siti Aminah', username: 'siti', role: 'Bendahara', status: 'Aktif' },
 ];
 
 const ManajemenPenggunaPage = () => {
   const [data, setData] = useState<Pengguna[]>(initialData);
   const [showModal, setShowModal] = useState(false);
-  const [form, setForm] = useState<Pengguna>({ id: 0, nama: '', role: '', status: '' });
+  const [form, setForm] = useState<Pengguna>({ id: 0, nama: '', username: '', role: 'Operator', status: 'Aktif' });
   const [filter, setFilter] = useState({ nama: '', role: '' });
   const [filterState, setFilterState] = useState({ nama: '', role: '' });
 
@@ -41,7 +41,7 @@ const ManajemenPenggunaPage = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setData([...data, form]);
-    setForm({ nama: '', username: '', role: 'Operator' });
+    setForm({ id: 0, nama: '', username: '', role: 'Operator', status: 'Aktif' });
     setShowModal(false);
   };
 

@@ -166,12 +166,12 @@ const InputPembelianPage = () => {
                     <input type='date' className='form-control' name='tanggal' value={form.tanggal} onChange={handleChange} required />
                   </div>
                   <div className='mb-3'>
-                    <label className='form-label'>Supplier</label>
-                    <input type='text' className='form-control' name='supplier' value={form.supplier} onChange={handleChange} required />
+                    <label className='form-label'>Pemasok</label>
+                    <input type='text' className='form-control' name='pemasok' value={form.pemasok} onChange={handleChange} required />
                   </div>
                   <div className='mb-3'>
-                    <label className='form-label'>Jenis</label>
-                    <input type='text' className='form-control' name='jenis' value={form.jenis} onChange={handleChange} required />
+                    <label className='form-label'>Nama Barang</label>
+                    <input type='text' className='form-control' name='namaBarang' value={form.namaBarang} onChange={handleChange} required />
                   </div>
                   <div className='mb-3'>
                     <label className='form-label'>Jumlah</label>

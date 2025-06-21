@@ -8,7 +8,7 @@ export interface LaporanSilicaPowder {
   sumber: string;
 }
 
-export const laporanSilicaPowderColumns: ReadonlyArray<Column<LaporanSilicaPowder>> = [
+export const laporanSilicaPowderColumns: Column<LaporanSilicaPowder>[] = [
   {
     Header: 'Tanggal',
     accessor: 'tanggal',

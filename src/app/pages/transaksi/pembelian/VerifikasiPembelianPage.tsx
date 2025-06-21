@@ -6,8 +6,8 @@ import { KTIcon } from '../../../../_metronic/helpers';
 import { MenuComponent } from '../../../../_metronic/assets/ts/components';
 
 const initialData: Pembelian[] = [
-  { tanggal: '2024-06-01', supplier: 'PT. Kaca Jaya', jenis: 'Kaca Bening', jumlah: '100 kg', harga: 'Rp 1.000.000', status: 'Menunggu' },
-  { tanggal: '2024-06-02', supplier: 'CV. Warna Abadi', jenis: 'Kaca Warna', jumlah: '50 kg', harga: 'Rp 600.000', status: 'Disetujui' },
+  { id: 1, tanggal: '2024-06-01', namaBarang: 'Kaca Bening', jumlah: 100, harga: 1000000, total: 1000000, pemasok: 'PT. Kaca Jaya', status: 'Menunggu' },
+  { id: 2, tanggal: '2024-06-02', namaBarang: 'Kaca Warna', jumlah: 50, harga: 600000, total: 600000, pemasok: 'CV. Warna Abadi', status: 'Disetujui' },
 ];
 
 const VerifikasiPembelianPage = () => {
@@ -33,8 +33,8 @@ const VerifikasiPembelianPage = () => {
   };
 
   const filteredData = data.filter(row =>
-    row.supplier.toLowerCase().includes(filter.pemasok.toLowerCase()) &&
-    row.status.toLowerCase().includes(filter.status.toLowerCase())
+    row.pemasok.toLowerCase().includes(filter.pemasok.toLowerCase()) &&
+    (row.status?.toLowerCase().includes(filter.status.toLowerCase()) || filter.status === '')
   );
 
   const handleExport = () => {

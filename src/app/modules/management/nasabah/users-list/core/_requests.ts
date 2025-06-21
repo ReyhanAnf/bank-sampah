@@ -104,6 +104,7 @@ const getUsers = (query: string): Promise<UsersQueryResponse> => {
         links: [],
         page: 1,
         per_page: 10,
+        items_per_page: 10,
         total: dummyNasabahData.length,
         total_pages: 1
       }

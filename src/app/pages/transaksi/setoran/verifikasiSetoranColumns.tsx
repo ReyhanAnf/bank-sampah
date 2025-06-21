@@ -8,7 +8,7 @@ export interface Setoran {
     jenis: string;
     berat: string;
     nilai: string;
-    status: string;
+    status?: string;
     selected?: boolean;
 }
 

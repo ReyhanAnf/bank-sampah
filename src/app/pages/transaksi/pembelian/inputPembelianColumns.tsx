@@ -9,9 +9,10 @@ export interface Pembelian {
     total: number;
     pemasok: string;
     status?: string;
+    selected?: boolean;
 }
 
-export const inputPembelianColumns: ReadonlyArray<Column<Pembelian>> = [
+export const inputPembelianColumns: Column<Pembelian>[] = [
   {
     Header: 'Tanggal',
     accessor: 'tanggal',

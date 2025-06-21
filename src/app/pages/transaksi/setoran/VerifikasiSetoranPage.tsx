@@ -36,7 +36,7 @@ const VerifikasiSetoranPage = () => {
 
   const filteredData = data.filter(row =>
     row.nasabah.toLowerCase().includes(filter.nasabah.toLowerCase()) &&
-    row.status.toLowerCase().includes(filter.status.toLowerCase())
+    (row.status?.toLowerCase().includes(filter.status.toLowerCase()) || filter.status === '')
   );
 
   const handleExport = () => {

@@ -6,10 +6,10 @@ import { KTIcon } from '../../../_metronic/helpers';
 import { MenuComponent } from '../../../_metronic/assets/ts/components';
 
 const initialData: LaporanStokSampah[] = [
-    { id: 1, jenisSampah: 'Plastik', jumlah: 150, nilai: 750000 },
-    { id: 2, jenisSampah: 'Kertas', jumlah: 200, nilai: 600000 },
-    { id: 3, jenisSampah: 'Logam', jumlah: 50, nilai: 1000000 },
-    { id: 4, jenisSampah: 'Kaca', jumlah: 75, nilai: 300000 },
+    { id: 1, tanggal: '2024-06-01', jenisSampah: 'Plastik', jumlah: 150, nilai: 750000, stok: 'Tersedia', status: 'Aktif' },
+    { id: 2, tanggal: '2024-06-02', jenisSampah: 'Kertas', jumlah: 200, nilai: 600000, stok: 'Tersedia', status: 'Aktif' },
+    { id: 3, tanggal: '2024-06-03', jenisSampah: 'Logam', jumlah: 50, nilai: 1000000, stok: 'Habis', status: 'Nonaktif' },
+    { id: 4, tanggal: '2024-06-04', jenisSampah: 'Kaca', jumlah: 75, nilai: 300000, stok: 'Tersedia', status: 'Aktif' },
 ];
 
 const LaporanStokSampahPage = () => {

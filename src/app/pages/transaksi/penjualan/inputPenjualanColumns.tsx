@@ -9,9 +9,10 @@ export interface Penjualan {
   total: number;
   pembeli: string;
   status?: string; // Optional status for other pages
+  selected?: boolean;
 }
 
-export const inputPenjualanColumns: ReadonlyArray<Column<Penjualan>> = [
+export const inputPenjualanColumns: Column<Penjualan>[] = [
   {
     Header: 'Tanggal',
     accessor: 'tanggal',

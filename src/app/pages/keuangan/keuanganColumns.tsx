@@ -1,10 +1,13 @@
 import {Column} from 'react-table';
 
 export type Keuangan = {
+  id: number;
   tanggal: string;
   keterangan: string;
   jenis: string;
   jumlah: string;
+  jenisTransaksi?: string;
+  status?: string;
 };
 
 export const keuanganColumns: Column<Keuangan>[] = [

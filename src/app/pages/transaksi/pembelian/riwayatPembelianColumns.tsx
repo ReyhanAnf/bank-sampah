@@ -1,7 +1,7 @@
 import { Column } from 'react-table';
 import { Pembelian } from './inputPembelianColumns';
 
-export const riwayatPembelianColumns: ReadonlyArray<Column<Pembelian>> = [
+export const riwayatPembelianColumns: Column<Pembelian>[] = [
   {
     Header: 'Tanggal',
     accessor: 'tanggal',

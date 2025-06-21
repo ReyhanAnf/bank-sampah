@@ -3,6 +3,7 @@ import { Column } from 'react-table';
 export interface Pengguna {
     id: number;
     nama: string;
+    username: string;
     role: string;
     status: string;
 }

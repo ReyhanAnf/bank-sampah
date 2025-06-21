@@ -7,7 +7,7 @@ export type SilicaPowder = {
   sumber: string;
 };
 
-export const silicaPowderColumns: ReadonlyArray<Column<SilicaPowder>> = [
+export const silicaPowderColumns: Column<SilicaPowder>[] = [
   {
     Header: 'Tanggal Produksi',
     accessor: 'tanggal',

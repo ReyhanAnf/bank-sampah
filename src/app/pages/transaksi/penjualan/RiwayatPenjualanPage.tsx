@@ -1,28 +1,39 @@
 import React, { useState } from 'react';
 import { KTCard } from '../../../../_metronic/helpers/components/KTCard';
 import { MetronicTable } from '../../../components/MetronicTable';
+import { Column } from 'react-table';
 
-const initialData = [
-  { tanggal: '2024-06-01', pembeli: 'PT. Kaca Jaya', jenis: 'Kaca Bening', jumlah: '100 kg', harga: 'Rp 1.200.000', status: 'Selesai' },
-  { tanggal: '2024-06-02', pembeli: 'CV. Warna Abadi', jenis: 'Kaca Warna', jumlah: '50 kg', harga: 'Rp 700.000', status: 'Ditolak' },
+interface Penjualan {
+  id: number;
+  tanggal: string;
+  pembeli: string;
+  namaBarang: string;
+  jumlah: string;
+  harga: string;
+  status: string;
+}
+
+const initialData: Penjualan[] = [
+  { id: 1, tanggal: '2024-06-01', pembeli: 'PT. Kaca Jaya', namaBarang: 'Kaca Bening', jumlah: '100 kg', harga: 'Rp 1.200.000', status: 'Selesai' },
+  { id: 2, tanggal: '2024-06-02', pembeli: 'CV. Warna Abadi', namaBarang: 'Kaca Warna', jumlah: '50 kg', harga: 'Rp 700.000', status: 'Ditolak' },
 ];
 
-const columns = [
+const columns: Column<Penjualan>[] = [
   { Header: 'Tanggal', accessor: 'tanggal' },
   { Header: 'Pembeli', accessor: 'pembeli' },
-  { Header: 'Jenis', accessor: 'jenis' },
+  { Header: 'Nama Barang', accessor: 'namaBarang' },
   { Header: 'Jumlah', accessor: 'jumlah' },
   { Header: 'Harga', accessor: 'harga' },
   { Header: 'Status', accessor: 'status' },
 ];
 
 const RiwayatPenjualanPage = () => {
-  const [data, setData] = useState(initialData);
-  const [filter, setFilter] = useState({ pembeli: '', jenis: '', status: '' });
+  const [data, setData] = useState<Penjualan[]>(initialData);
+  const [filter, setFilter] = useState({ pembeli: '', namaBarang: '', status: '' });
 
   const filteredData = data.filter(row =>
     row.pembeli.toLowerCase().includes(filter.pembeli.toLowerCase()) &&
-    row.jenis.toLowerCase().includes(filter.jenis.toLowerCase()) &&
+    row.namaBarang.toLowerCase().includes(filter.namaBarang.toLowerCase()) &&
     row.status.toLowerCase().includes(filter.status.toLowerCase())
   );
 
@@ -44,10 +55,10 @@ const RiwayatPenjualanPage = () => {
             <input
               type='text'
               className='form-control form-control-sm'
-              placeholder='Cari Jenis...'
-              name='jenis'
-              value={filter.jenis}
-              onChange={e => setFilter({ ...filter, jenis: e.target.value })}
+              placeholder='Cari Nama Barang...'
+              name='namaBarang'
+              value={filter.namaBarang}
+              onChange={e => setFilter({ ...filter, namaBarang: e.target.value })}
               style={{ maxWidth: 180 }}
             />
             <input

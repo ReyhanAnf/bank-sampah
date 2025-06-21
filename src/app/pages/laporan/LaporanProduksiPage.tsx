@@ -1,13 +1,22 @@
 import React, { useState } from 'react';
 import { KTCard } from '../../../_metronic/helpers/components/KTCard';
 import { MetronicTable } from '../../components/MetronicTable';
+import { Column } from 'react-table';
 
-const initialData = [
-  { tanggal: '2024-06-01', produk: 'Silica Powder', jumlah: '20 kg', sumber: 'Kaca Bening' },
-  { tanggal: '2024-06-02', produk: 'Silica Powder', jumlah: '15 kg', sumber: 'Kaca Warna' },
+interface Produksi {
+  id: number;
+  tanggal: string;
+  produk: string;
+  jumlah: string;
+  sumber: string;
+}
+
+const initialData: Produksi[] = [
+  { id: 1, tanggal: '2024-06-01', produk: 'Silica Powder', jumlah: '20 kg', sumber: 'Kaca Bening' },
+  { id: 2, tanggal: '2024-06-02', produk: 'Silica Powder', jumlah: '15 kg', sumber: 'Kaca Warna' },
 ];
 
-const columns = [
+const columns: Column<Produksi>[] = [
   { Header: 'Tanggal', accessor: 'tanggal' },
   { Header: 'Produk', accessor: 'produk' },
   { Header: 'Jumlah', accessor: 'jumlah' },
@@ -15,7 +24,7 @@ const columns = [
 ];
 
 const LaporanProduksiPage = () => {
-  const [data] = useState(initialData);
+  const [data] = useState<Produksi[]>(initialData);
   const [filter, setFilter] = useState({ produk: '', sumber: '' });
 
   const filteredData = data.filter(row =>
